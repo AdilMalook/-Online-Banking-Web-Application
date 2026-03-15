@@ -1,0 +1,85 @@
+{% include "dbase.html" %}
+
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support Form</title>
+    <style>
+        .transaction-form-container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .transaction-form-container h2 {
+            text-align: center;
+        }
+
+        .transaction-form-container .form-group {
+            margin-bottom: 15px;
+        }
+
+        .transaction-form-container label {
+            font-weight: bold;
+        }
+
+        .transaction-form-container input[type="number"],
+        .transaction-form-container input[type="text"],
+        .transaction-form-container select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .transaction-form-container button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .transaction-form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="transaction-form-container">
+        <h2>Customer Support Form</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <input type="message" id="message" name="message" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Display messages as a pop-up -->
+    {% if messages %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                {% for message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            });
+        </script>
+    {% endif %}
+</body>
+</html>
+{% endblock body %}

@@ -1,0 +1,135 @@
+{% include "dbase.html" %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banking Portal Dashboard</title>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS file -->
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header styling */
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        /* Footer styling */
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        /* Main content area styling */
+        .content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            min-height: 400px;
+        }
+        
+        /* Box styling with two sections */
+        .info-box {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .left-section {
+            text-align: left;
+        }
+
+        .right-section {
+            
+        }
+        
+        /* Bottom boxes styling */
+        .bottom-box {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .bottom-box .box {
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 48%;
+     
+        }
+    </style>
+</head>
+<body>
+    
+    
+<!-- Content Area -->
+<!-- Content Area -->
+<div class="content">
+    <div class="info-box">
+        <!-- Upper section -->
+        <div class="box-header">
+            <div class="left-section">
+                {% if user_data %}
+                    <p><span style="font-size: 25px;">Hi, {{ user_data.UserAccountName }}</span></p>
+                    <p>Welcome to SIBA Banking Portal</p>
+                {% else %}
+                    <p>No user found with the specified account number.</p>
+                {% endif %}
+            </div>
+            <div class="right-section">
+                {% if user_data %}
+                    <p>Account Number : {{ user_data.UserAccountNo }}</p>
+                    <p>Account Name : {{ user_data.UserAccountName }}</p>
+                    <p>Phone Number : {{ user_data.UserPhone }}</p>
+                    <p>Branch ID : {{ account_data.BankAccountBranch }}</p>
+                    <p>Branch Name : {{ branch.BranchName }} </p>
+                    
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Bottom section with two boxes -->
+        <div class="bottom-box">
+            <div class="box">
+                <p>Total Payment in Account</p>
+                <h3>${{ account_data.CurrentAmmount }}</h3>
+            </div>
+            <div class="box">
+                <p>Loan Amount</p>
+                <h3>${{ account_data.CurrentLoanAmmount }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+</body>
+</html>
+
+{% endblock body %}

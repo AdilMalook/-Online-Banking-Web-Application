@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}{% endblock title %}| SIBA BANKING</title>
+    <style>
+        /* Resetting default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling the header */
+        .site-header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        .main-nav ul {
+            list-style-type: none;
+        }
+
+        .main-nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .main-nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling the buttons */
+        .btn {
+            Text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        Button a{ text-decoration: none; color:white;}
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling the footer */
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <h1 class="logo">SIBA BANKING PORTAL</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="dashboard">Dashboard</a></li>
+                <li><a href="history">History</a></li>
+                <li><a href="transfer">Transfer</a></li>
+                <li><a href="loan">Loan</a></li>
+                <li><a href="about">Pay Loan</a></li>
+            </ul>
+        </nav>
+        <div>
+            <button class="btn"> <a href="customersupport"> Customer Support</a></button>
+            <button class="btn"><a href="{% url 'logout' %}"> Logout </a></button>
+        </div>
+    </div>
+</header>
+
+
+<main>
+        <!-- Main content of the website goes here -->
+    {% block Body %}
+    {% endblock Body %}
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2024 SIBA BANKING | All rights reserved.</p>
+</footer>
+
+</body>
+</html>

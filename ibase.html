@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIBA Banking</title>
+<style>
+  /* Header Styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+ 
+
+  /* Footer Styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* Button Styles */
+  .btn {
+
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    decoration: none;
+  }
+  Button a{ text-decoration: none; color:white;}
+
+  .btn-secondary {
+    background-color: #6c757d;
+  }
+
+  .btn-container {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>{% block title %} {% endblock title %} | Welcome To SIBA Banking Portal |</h1>
+</header>
+
+<div class="btn-container">
+  <button class="btn"><a href="login"> Login Account </a></button>
+  <button class="btn"><a href="signup"> Create Account </a></button>
+  <button class="btn"><a href="customersupport"> Customer Support </a></button>
+</div>
+
+{% block Body %}
+
+{% endblock Body %}
+
+
+
+<footer>
+  <p>&copy; 2024 SIBA BANKING | All rights reserved.</p>
+</footer>
+
+</body>
+</html>

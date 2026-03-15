@@ -1,0 +1,76 @@
+{% include "dbase.html" %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction and Loan History</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+   
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="transaction-history">
+                    <h2>Transaction History</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Receiver Account No</th>
+                                <th>Amount</th>
+                                <th>Purpose</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for transaction in transactions %}
+                                <tr>
+                                    <td>{{ transaction.TransactionId }}</td>
+                                    <td>{{ transaction.ReceiverUserAccountNo.UserAccountNo }}</td>
+                                    <td>{{ transaction.Ammount }}</td>
+                                    <td>{{ transaction.TransactionPurpose }}</td>
+                                    <td>{{ transaction.TransactionDate }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="loan-history">
+                    <h2>Loan History</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Loan ID</th>
+                                <th>Amount</th>
+                                <th>Purpose</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for loan in loans %}
+                                <tr>
+                                    <td>{{ loan.LoanId }}</td>
+                                    <td>{{ loan.LoanAmmount }}</td>
+                                    <td>{{ loan.LoanPurpose }}</td>
+                                    <td>{{ loan.LoanDate }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock body %}
